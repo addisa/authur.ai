@@ -1,0 +1,2178 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Authur — your AI buddy that happens to be an otter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/1613b6e2-8fac-4b21-9e91-60a29dab8c88.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/9b27bec5-e8da-4f4a-8488-4e8a18dd7aad.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/3bd3cb50-99c7-451f-97ac-a8388c8f6eb8.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/19f8def7-88d8-4291-baad-e048472dcff5.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/1613b6e2-8fac-4b21-9e91-60a29dab8c88.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/9b27bec5-e8da-4f4a-8488-4e8a18dd7aad.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/3bd3cb50-99c7-451f-97ac-a8388c8f6eb8.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/19f8def7-88d8-4291-baad-e048472dcff5.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/1613b6e2-8fac-4b21-9e91-60a29dab8c88.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/9b27bec5-e8da-4f4a-8488-4e8a18dd7aad.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/3bd3cb50-99c7-451f-97ac-a8388c8f6eb8.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/19f8def7-88d8-4291-baad-e048472dcff5.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/c8d9b5c3-d12c-4a68-97af-f192a67ae1d5.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/734151ab-6359-404a-bf74-5cd0cbaa97ff.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/c8d9b5c3-d12c-4a68-97af-f192a67ae1d5.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/734151ab-6359-404a-bf74-5cd0cbaa97ff.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/c8d9b5c3-d12c-4a68-97af-f192a67ae1d5.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/734151ab-6359-404a-bf74-5cd0cbaa97ff.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/c8d9b5c3-d12c-4a68-97af-f192a67ae1d5.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/734151ab-6359-404a-bf74-5cd0cbaa97ff.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/c8d9b5c3-d12c-4a68-97af-f192a67ae1d5.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/734151ab-6359-404a-bf74-5cd0cbaa97ff.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/b68bbc16-3278-45a5-b28a-8d8f8f46eb16.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/46927388-dd73-407d-99b3-e58bfd3f4401.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/a046d147-5688-4a70-8c5c-580e63784872.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/d7125f9d-b498-47d8-8d6a-fb29d967ad78.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/bc40fdb8-c1bd-4dc8-9828-d2121ab37f28.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/c6870b96-c01b-47ae-bb9a-011290c1ffaf.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/385c25dd-0632-4b31-b193-bba0811974c6.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/2c837da6-295e-4e8f-a3fa-8451b8742b5d.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/5afb0f4f-7414-4967-8bde-dcde1a28e691.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/eb9216de-eb59-473f-8ba0-3c70edfd143d.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/bc40fdb8-c1bd-4dc8-9828-d2121ab37f28.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/c6870b96-c01b-47ae-bb9a-011290c1ffaf.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/385c25dd-0632-4b31-b193-bba0811974c6.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/2c837da6-295e-4e8f-a3fa-8451b8742b5d.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/5afb0f4f-7414-4967-8bde-dcde1a28e691.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/eb9216de-eb59-473f-8ba0-3c70edfd143d.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+  video::cue {
+    background: rgba(26, 60, 64, 0.85); /* brand teal */
+    color: #FAF5E4; /* brand cream */
+    font-family: inherit;
+    font-size: 16px;
+    border-radius: 8px;
+    padding: 2px 6px;
+  }</style>
+<script src="assets/20217c53-e560-4074-877f-4d74f75223b2.js"></script>
+<style>
+  :root {
+    /* South Carolina Lowcountry Marsh Palette: pluff mud, spartina cordgrass, tidal creek, and sunset amber */
+    --cream: #EAE6D2;       /* dried oyster shell / sandy mud */
+    --cream-2: #F1EDDB;     /* light coastal sand */
+    --paper: #EAE6D2;       /* restored back to dried oyster shell */
+    --paper-tint: #F1EDDB;  /* light coastal sand */
+    --ink: #111F1D;         /* pluff mud deep grey-black */
+    --ink-2: #303E3B;       /* shade of the spartina */
+    --ink-3: #5C6E6A;       /* high tide marsh blade */
+    --rule: #C1BFA6;        /* pluff mud silt line */
+    --navy: #153941;        /* deep river channel */
+    --navy-2: #1E4E58;      /* moving tidal current */
+    --teal: #366B72;        /* salt marsh brackish water */
+    --rust: #D86B3E;        /* sunset orange over the river */
+    --rust-dk: #9c451e;     /* coppery marsh reeds in winter */
+    --sage: #819888;        /* live oak spanish moss */
+    --moss: #465E4E;        /* midsummer cordgrass green */
+    --gold: #D6A43B;        /* lowcountry golden hour */
+    --gold-lt: #EDC16D;     /* marsh grass tips under sun */
+    --shell: #F3EFE0;       /* sandy shell-clink shore background */
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "DM Sans", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .serif { font-family: "Instrument Serif", "Times New Roman", serif; font-weight: 400; letter-spacing: -0.005em; }
+  .script { font-family: "Caveat", cursive; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+  /* subtle paper texture */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(201,155,63,0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(46,107,115,0.04) 0%, transparent 45%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: "";
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.4   0 0 0 0 0.3   0 0 0 0 0.18   0 0 0 0.07 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: multiply;
+    opacity: 0.5;
+  }
+
+  main, header, footer { position: relative; z-index: 2; }
+
+  /* ===== Top bar ===== */
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 40px;
+    background: var(--paper); /* Pure white header */
+    border-bottom: 1px solid var(--rule);
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-mark {
+    width: 36px; height: 36px;
+    background: var(--navy);
+    color: var(--cream);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: "Instrument Serif", serif;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1;
+    padding-bottom: 3px;
+  }
+  .brand-name { font-family: "Instrument Serif", serif; font-size: 26px; letter-spacing: -0.01em; }
+  .brand-name em { font-style: italic; color: var(--rust-dk); }
+  .brand-place {
+    margin-left: 14px;
+    padding-left: 14px;
+    border-left: 1px solid var(--rule);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    line-height: 1.2;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' width='14' height='14'><path d='M2 9 C 3 4, 6 1, 8 1 C 5 2, 3 5, 3 9 Z' fill='%23465E4E'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 18px;
+  }
+  .brand-place strong { color: var(--moss); font-weight: 600; }
+  .nav { display: flex; gap: 28px; font-size: 14px; color: var(--ink-2); }
+  .nav a { color: inherit; text-decoration: none; }
+  .nav a:hover { color: var(--rust-dk); }
+  .nav-cta {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 9px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .nav-cta:hover { background: var(--rust-dk); }
+
+  /* ===== Mobile hamburger menu ===== */
+  .hamburger-btn {
+    display: none;
+    background: none; border: none; cursor: pointer;
+    width: 40px; height: 40px;
+    align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .hamburger-btn span {
+    display: block;
+    width: 22px; height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    position: relative;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+  .hamburger-btn span::before, .hamburger-btn span::after {
+    content: "";
+    position: absolute; left: 0;
+    width: 22px; height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+  .hamburger-btn span::before { top: -7px; }
+  .hamburger-btn span::after { top: 7px; }
+  .hamburger-btn.open span { background: transparent; }
+  .hamburger-btn.open span::before { transform: translateY(7px) rotate(45deg); }
+  .hamburger-btn.open span::after { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-nav {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    box-shadow: 0 12px 24px -8px rgba(27,24,20,0.12);
+    flex-direction: column;
+    padding: 8px 24px 20px;
+    z-index: 40;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    color: var(--ink-2);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .mobile-nav a:last-of-type { border-bottom: none; }
+  .mobile-nav .nav-cta { margin-top: 12px; justify-content: center; }
+
+  /* ===== Decorative wave divider ===== */
+  .wave-divider {
+    display: block;
+    width: 100%;
+    height: 48px;
+    color: var(--paper); /* Restored to matching background */
+  }
+  .wave-divider svg { display: block; width: 100%; height: 100%; }
+
+  /* ===== Spanish moss ornament ===== */
+  .moss-ornament {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    pointer-events: none;
+    opacity: 0.18; /* Muted from 0.55 for cleaner, more subtle Lowcountry vibe */
+    color: var(--moss);
+  }
+
+  /* ===== Hero ===== */
+  .hero {
+    position: relative;
+    padding: 60px 40px 90px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 40px;
+    align-items: center;
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 22px;
+  }
+  .eyebrow .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--sage);
+    box-shadow: 0 0 0 4px rgba(110,142,127,0.18);
+    animation: breathe 2.4s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%,100% { box-shadow: 0 0 0 4px rgba(110,142,127,0.18); }
+    50% { box-shadow: 0 0 0 8px rgba(110,142,127,0.06); }
+  }
+  @keyframes flash-green {
+    0% { background-color: rgba(74, 222, 128, 0); }
+    15% { background-color: rgba(74, 222, 128, 0.35); }
+    100% { background-color: rgba(74, 222, 128, 0); }
+  }
+  .live-dot.flash, .eyebrow .dot.flash {
+    animation: flash-green 1s ease-out 2;
+  }
+  .log-entry.new-entry {
+    animation: flash-green 1.6s ease-out 1;
+  }
+  h1.hero-title {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: clamp(48px, 6.2vw, 92px);
+    line-height: 1.02;
+    letter-spacing: -0.018em;
+    margin: 0 0 24px;
+    color: var(--ink);
+  }
+  h1.hero-title em { font-style: italic; color: var(--rust-dk); }
+  h1.hero-title .underline {
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
+  }
+  .hero-lede {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 520px;
+    margin: 0 0 30px;
+  }
+  .hero-cta-row { display: flex; gap: 14px; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 13px 22px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: transform 0.15s ease;
+  }
+  .btn-primary { background: var(--navy); color: var(--cream); }
+  .btn-primary:hover { background: var(--rust-dk); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--rule); }
+  .btn-ghost:hover { border-color: var(--ink); }
+  .hero-meta {
+    margin-top: 32px;
+    display: flex; gap: 28px;
+    font-size: 13px; color: var(--ink-3);
+  }
+  .hero-meta span strong { color: var(--ink); font-weight: 600; }
+
+  .hero-figure {
+    position: relative;
+    display: grid; place-items: center;
+  }
+  .hero-water {
+    position: absolute;
+    bottom: 4%;
+    width: 88%;
+    height: 70px;
+    background: radial-gradient(ellipse at center, rgba(46,107,115,0.22), rgba(46,107,115,0) 70%);
+    border-radius: 50%;
+    filter: blur(2px);
+  }
+  .otter-wrap {
+    position: relative;
+    width: min(100%, 520px);
+    aspect-ratio: 1 / 1;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(27,24,20,0.25), 0 0 0 1px var(--rule);
+    background: #0F3640;
+  }
+    .otter-wrap video, .otter-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .video-caption-overlay {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 54, 64, 0.88); /* deep translucent brand teal */
+    color: #FAF5E4; /* brand cream */
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    text-align: center;
+    padding: 8px 16px;
+    border-radius: 12px;
+    width: 82%;
+    max-width: 420px;
+    box-sizing: border-box;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+    border: 1px solid rgba(250, 245, 228, 0.15);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 10;
+  }
+  .video-caption-overlay.show {
+    opacity: 1;
+    transform: translate(-50%, -4px);
+  }
+  .otter-wrap::after {
+    content: "";
+    position: absolute; inset: 0;
+    box-shadow: inset 0 0 80px rgba(15,54,64,0.2);
+    pointer-events: none;
+  }
+
+  /* Floating chat bubble next to otter */
+  .otter-chat {
+    position: absolute;
+    top: 6%; right: -8%;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 18px 18px 4px 18px;
+    padding: 12px 16px;
+    font-family: "Caveat", cursive;
+    font-size: 22px;
+    line-height: 1.15;
+    color: var(--ink);
+    max-width: 220px;
+    box-shadow: 0 8px 20px rgba(27,24,20,0.06);
+    transform: rotate(2deg);
+  }
+  .otter-chat::after {
+    content: "";
+    position: absolute;
+    bottom: -8px; right: 22px;
+    width: 14px; height: 14px;
+    background: var(--paper);
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    transform: rotate(45deg);
+  }
+  .otter-tag {
+    position: absolute;
+    bottom: 2%; left: -4%;
+    background: var(--navy);
+    color: var(--cream);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-family: "DM Sans", sans-serif;
+    letter-spacing: 0.04em;
+    transform: rotate(-3deg);
+    border: 1px solid var(--gold-lt);
+  }
+
+  /* ===== Name etymology strip ===== */
+  .name-strip {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 56px 40px;
+    overflow: hidden;
+    position: relative;
+  }
+  .name-strip-inner {
+    max-width: 1320px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.6fr 1.4fr;
+    gap: 48px;
+    align-items: end;
+  }
+  .name-strip h2 {
+    font-family: "Instrument Serif", serif;
+    font-size: 44px;
+    line-height: 1.05;
+    margin: 0;
+    font-weight: 400;
+  }
+  .name-strip h2 em { font-style: italic; color: #E8B569; }
+  .roots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .root .root-word {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 24px;
+    color: #E8B569;
+    margin-bottom: 6px;
+    border-bottom: 1px solid rgba(232,181,105,0.3);
+    padding-bottom: 8px;
+  }
+  .root .root-word .stress { font-style: normal; color: #FAF5E4; text-decoration: underline; text-decoration-color: #C9663A; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  .root p { font-size: 13px; line-height: 1.5; color: rgba(250,245,228,0.78); margin: 0; }
+
+  /* ===== Section base ===== */
+  section { padding: 90px 40px; }
+  .container { max-width: 1320px; margin: 0 auto; }
+  .section-head { display: grid; grid-template-columns: 0.45fr 0.55fr; gap: 48px; margin-bottom: 56px; align-items: end; }
+  .section-eyebrow {
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-3); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-eyebrow::before {
+    content: ""; width: 24px; height: 1px; background: var(--ink-3);
+  }
+  h2.section-title {
+    font-family: "Instrument Serif", serif;
+    font-size: clamp(38px, 4.2vw, 60px);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+    margin: 0;
+  }
+  h2.section-title em { font-style: italic; color: var(--rust-dk); }
+  .section-intro { font-size: 17px; color: var(--ink-2); line-height: 1.6; max-width: 520px; }
+
+  /* ===== Capabilities ===== */
+  .caps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .cap {
+    background: var(--paper); /* Now pure white */
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    padding: 28px 26px 26px;
+    position: relative;
+    display: flex; flex-direction: column;
+    min-height: 240px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .cap:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(27,24,20,0.06); }
+  .cap-num {
+    position: absolute; top: 22px; right: 22px;
+    font-family: "Instrument Serif", serif; font-style: italic;
+    color: var(--ink-3); font-size: 16px;
+  }
+  .cap-icon {
+    width: 44px; height: 44px;
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    display: grid; place-items: center;
+    margin-bottom: 20px;
+    color: var(--rust-dk);
+  }
+  .cap h3 {
+    font-family: "Instrument Serif", serif;
+    font-size: 26px; line-height: 1.1;
+    font-weight: 400;
+    margin: 0 0 10px;
+  }
+  .cap p { font-size: 14.5px; color: var(--ink-2); line-height: 1.55; margin: 0 0 16px; }
+  .cap-eg {
+    margin-top: auto;
+    font-family: "Caveat", cursive;
+    font-size: 18px;
+    color: var(--teal);
+    padding-top: 14px;
+    border-top: 1px dashed var(--rule);
+  }
+  .cap.featured {
+    background: var(--navy);
+    color: var(--cream);
+    border-color: var(--navy);
+  }
+  .cap.featured .cap-num { color: rgba(250,245,228,0.5); }
+  .cap.featured .cap-icon { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.16); color: #E8B569; }
+  .cap.featured p { color: rgba(250,245,228,0.78); }
+  .cap.featured .cap-eg { color: #E8B569; border-top-color: rgba(255,255,255,0.18); }
+
+  /* ===== Hermes explainer ===== */
+  .openclaw {
+    background: var(--paper); /* Pure white background structure for the Hermes section */
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .openclaw::after {
+    content: "";
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 140px; height: 180px;
+    opacity: 0.12;
+    pointer-events: none;
+    /* Hand-drawn Lowcountry marsh grass silhouette */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120' fill='%23465E4E'><path d='M10 120 C 12 80, 20 40, 35 10 C 25 35, 18 70, 15 120 Z M28 120 C 30 75, 42 35, 58 5 C 45 35, 36 75, 32 120 Z M45 120 C 50 85, 65 50, 80 15 C 68 45, 55 85, 50 120 Z M62 120 C 65 90, 78 60, 92 25 C 80 55, 70 90, 66 120 Z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: bottom right;
+  }
+  .claw-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .claw-illo {
+    background: var(--paper-tint);
+    border: 1px solid var(--rule);
+    border-radius: 24px;
+    padding: 32px;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+  }
+  .claw-illo svg { width: 100%; height: 100%; }
+  .claw-letters {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    margin-top: 28px;
+  }
+  .claw-letter {
+    background: var(--paper); /* Now pure white */
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .claw-letter .big {
+    font-family: "Instrument Serif", serif;
+    font-size: 44px; line-height: 0.9;
+    color: var(--rust-dk);
+    font-style: italic;
+    flex-shrink: 0;
+    width: 36px;
+  }
+  .claw-letter h4 {
+    font-family: "Instrument Serif", serif;
+    font-size: 18px; margin: 0 0 4px; font-weight: 400;
+  }
+  .claw-letter p { margin: 0; font-size: 13px; color: var(--ink-2); line-height: 1.4; }
+
+  /* ===== Daily log ===== */
+  .log-shell {
+    background: var(--paper); /* Pure white terminal background */
+    border: 1px solid var(--rule);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(17,31,29,0.04);
+  }
+  .log-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 24px;
+    background: var(--cream-2);
+    border-bottom: 1px solid var(--rule);
+  }
+  .log-head .log-title {
+    display: flex; align-items: center; gap: 10px;
+    font-family: "Instrument Serif", serif; font-size: 20px;
+  }
+  .log-head .live {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 12px; color: var(--sage); letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sage); animation: breathe 2s infinite; }
+  .log-stack {
+    display: block;
+  }
+  .log-entries { padding: 4px 0; }
+  .log-entry {
+    padding: 16px 28px;
+    border-bottom: 1px dashed var(--rule);
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 92px 28px 1fr;
+    gap: 14px;
+    align-items: start;
+    transition: background 0.2s ease;
+  }
+  .log-entry:last-child { border-bottom: 0; }
+  .log-entry:hover { background: var(--cream-2); }
+  .log-entry .time {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--ink-3);
+    padding-top: 4px;
+    white-space: nowrap;
+  }
+  .log-entry .marker {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+    color: var(--rust-dk);
+  }
+  .log-entry .marker.task { background: rgba(46,107,115,0.1); border-color: rgba(46,107,115,0.3); color: var(--teal); }
+  .log-entry .marker.note { background: rgba(201,155,63,0.12); border-color: rgba(201,155,63,0.4); color: var(--gold); }
+  .log-entry .marker.done { background: rgba(110,142,127,0.18); border-color: rgba(110,142,127,0.4); color: var(--sage); }
+  .log-entry .body { font-size: 14.5px; line-height: 1.4; color: var(--ink); min-width: 0; }
+  .log-entry .body .meta { display: block; font-size: 12px; color: var(--ink-3); margin-top: 3px; font-family: "JetBrains Mono", monospace; }
+  .log-entry.now { background: rgba(201,102,58,0.05); }
+  .log-entry.now .body::after {
+    content: "now"; margin-left: 8px;
+    background: var(--rust); color: white;
+    font-size: 10px; padding: 2px 7px; border-radius: 6px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    font-family: "DM Sans", sans-serif; font-weight: 500;
+    vertical-align: middle;
+  }
+
+  /* ===== About you ===== */
+  .about {
+    background: var(--paper); /* Pure white background structure for About Section */
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .about::before {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 200px; height: 240px;
+    opacity: 0.15;
+    pointer-events: none;
+    /* Hand-drawn Lowcountry Spartina grass with a small Great Egret/heron wading outline */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120' fill='%23465E4E'><path d='M5 120 C 10 90, 8 60, 15 30 C 11 60, 8 90, 7 120 Z M19 120 C 22 80, 28 50, 35 15 C 26 50, 22 80, 20 120 Z M32 120 M70 120 C 65 95, 55 70, 42 45 C 52 70, 60 95, 64 120 Z'/><path d='M55 75 C 55 65, 50 63, 44 65 C 38 67, 34 71, 34 75 C 34 78, 38 80, 44 80 C 50 80, 55 78, 55 75 Z' fill='%23465E4E' opacity='0.7'/><path d='M44 65 C 44 55, 41 50, 43 42 C 45 38, 48 36, 48 32 C 43 35, 40 40, 40 48 C 40 55, 42 62, 42 65 Z' fill='%23465E4E' opacity='0.7'/><path d='M48 32 C 50 32, 54 30, 58 30 C 53 32, 49 34, 48 35 Z' stroke='%23D6A43B' stroke-width='1.5'/><line x1='41' y1='78' x2='41' y2='110' stroke='%23465E4E' stroke-width='1.8'/><line x1='47' y1='78' x2='49' y2='108' stroke='%23465E4E' stroke-width='1.8'/></svg>");
+    background-repeat: no-repeat;
+    background-position: bottom left;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .brian-photo { display: flex; flex-direction: column; gap: 14px; align-items: center; }
+  .brian-photo image-slot { width: 100%; aspect-ratio: 4/5; max-width: 380px; }
+  .brian-caption { font-family: "Caveat", cursive; font-size: 20px; color: var(--moss); text-align: center; }
+  .about-quote {
+    font-family: "Instrument Serif", serif;
+    font-size: clamp(28px, 2.6vw, 38px);
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 0 0 28px;
+  }
+  .about-quote em { font-style: italic; color: var(--rust-dk); }
+  .about-card {
+    background: var(--paper); /* Pure white profile brief card */
+    border: 1px solid var(--rule);
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 6px 20px rgba(17,31,29,0.03);
+  }
+  .about-card h4 {
+    font-family: "Instrument Serif", serif;
+    font-size: 22px; margin: 0 0 18px; font-weight: 400;
+  }
+  .about-card .row {
+    display: flex; justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--rule);
+    font-size: 14px;
+  }
+  .about-card .row:last-child { border-bottom: 0; }
+  .about-card .row .k { color: var(--ink-3); }
+  .about-card .row .v { color: var(--ink); font-weight: 500; }
+
+  /* ===== Sign up / contact ===== */
+  .signup {
+    background: var(--navy);
+    color: var(--cream);
+    border-radius: 32px;
+    padding: 60px;
+    max-width: 1240px;
+    margin: 90px auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .signup-grid {
+    display: grid; grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px; align-items: center;
+  }
+  .signup h2 {
+    font-family: "Instrument Serif", serif;
+    font-size: clamp(36px, 4vw, 52px);
+    line-height: 1.05; font-weight: 400;
+    margin: 0 0 18px;
+  }
+  .signup h2 em { font-style: italic; color: #E8B569; }
+  .signup p { color: rgba(250,245,228,0.78); font-size: 16px; max-width: 460px; margin: 0; }
+  .signup-form {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 22px;
+    padding: 24px;
+    backdrop-filter: blur(8px);
+  }
+  .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .field label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,245,228,0.6); }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .field select {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 12px;
+    padding: 12px 14px;
+    color: var(--cream);
+    font: inherit;
+    font-family: "DM Sans", sans-serif;
+    font-size: 15px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .field select:focus { border-color: #E8B569; background: rgba(255,255,255,0.08); }
+  .field input, .field textarea {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 12px;
+    padding: 12px 14px;
+    color: var(--cream);
+    font: inherit;
+    font-family: "DM Sans", sans-serif;
+    font-size: 15px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .field input:focus, .field textarea:focus { border-color: #E8B569; background: rgba(255,255,255,0.08); }
+  .field textarea { resize: vertical; min-height: 70px; }
+  .signup-btn {
+    width: 100%; background: #E8B569; color: var(--navy);
+    border: 0; padding: 14px; border-radius: 12px;
+    font: inherit; font-weight: 600; font-size: 15px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .signup-btn:hover { background: #F5C97A; }
+  .signup-meta { display: flex; justify-content: space-between; font-size: 12px; color: rgba(250,245,228,0.55); margin-top: 12px; }
+
+  /* ===== Footer ===== */
+  footer {
+    padding: 40px;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-3);
+    font-size: 13px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 20px;
+    background: var(--shell);
+    position: relative;
+  }
+  .lowcountry-strip {
+    background: var(--moss);
+    color: var(--cream-2);
+    padding: 18px 40px;
+    text-align: center;
+    font-family: "Instrument Serif", serif;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    border-top: 1px solid var(--rule);
+  }
+  .lowcountry-strip em { font-style: italic; color: var(--gold-lt); }
+  footer .left { display: flex; align-items: center; gap: 14px; }
+  footer .links { display: flex; gap: 22px; }
+  footer .links a { color: inherit; text-decoration: none; }
+  footer .links a:hover { color: var(--ink); }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 980px) {
+    .hero, .section-head, .claw-grid, .about-grid, .signup-grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+    .caps-grid { grid-template-columns: 1fr 1fr; }
+    .roots { grid-template-columns: 1fr 1fr; gap: 18px; }
+    .name-strip-inner { grid-template-columns: 1fr; gap: 28px; }
+    .signup { padding: 36px; margin: 60px 20px; border-radius: 24px; }
+    section { padding: 60px 24px; }
+    .topbar { padding: 16px 20px; position: relative; }
+    .nav { display: none; }
+    .nav-cta { display: none; }
+    .hamburger-btn { display: flex; }
+    .brand-place { display: none; }
+    .otter-chat { top: -16px; right: 8px; left: auto; max-width: 190px; font-size: 17px; padding: 10px 14px; transform: rotate(1deg); }
+    .otter-chat::after { display: none; }
+    /* Native date/time inputs are cramped side-by-side on tablet+ widths too — stack them
+       so "Preferred date" isn't squeezed against "Time of day" in a narrow column. */
+    .field-row { grid-template-columns: 1fr; gap: 14px; }
+  }
+  @media (max-width: 560px) {
+    .caps-grid { grid-template-columns: 1fr; }
+    .roots { grid-template-columns: 1fr; }
+    .log-entry {
+      grid-template-columns: 24px 1fr;
+      grid-template-areas: "icon time" "icon body";
+      padding: 14px 16px;
+      gap: 4px 10px;
+    }
+    .log-entry .marker { grid-area: icon; width: 24px; height: 24px; }
+    .log-entry .time { grid-area: time; padding-top: 0; font-size: 11px; }
+    .log-entry .body { grid-area: body; }
+    .brand-name { font-size: 21px; }
+    .otter-chat { position: static; margin: 0 auto 16px; max-width: 92%; transform: none; text-align: center; }
+    .otter-wrap { margin-top: 0; }
+    .otter-tag { position: static; display: block; width: fit-content; margin: 0 auto 20px; font-size: 11px; padding: 5px 10px; }
+    .signup { padding: 24px 18px; margin: 40px 12px; border-radius: 20px; }
+    .signup-form { padding: 18px; }
+    .signup h2 { font-size: clamp(26px, 7vw, 34px); }
+  }
+</style>
+</head>
+<body>
+
+
+
+<header class="topbar" data-screen-label="00 Topbar">
+  <div class="brand">
+    <div class="brand-mark">A</div>
+    <div class="brand-name">authur<em>.ai</em></div>
+    <div class="brand-place">Lowcountry,<br><strong>SC</strong></div>
+  </div>
+  <nav class="nav">
+    <a href="#what">What he does</a>
+    <a href="#how">How he works</a>
+    <a href="#today">Today</a>
+    <a href="#about">For whom</a>
+  </nav>
+  <a class="nav-cta" href="#meet">
+    Meet Authur
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8m0 0L6 2m4 4L6 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  </a>
+  <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span>
+  </button>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#what">What he does</a>
+    <a href="#how">How he works</a>
+    <a href="#today">Today</a>
+    <a href="#about">For whom</a>
+    <a class="nav-cta" href="#meet">Meet Authur</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" data-screen-label="01 Hero">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="dot"></span>A HERMES agent · est. 2026</div>
+    <h1 class="hero-title">
+      Meet <em>Authur</em>,<br>
+      your <span class="underline">otter</span>ly<br>
+      capable buddy.
+    </h1>
+    <p class="hero-lede">
+      Half assistant, half friend, fully otter. Authur checks your inbox, herds your to-dos, remembers your meetings, and answers the small daily questions so you can think about the big ones. Honest. Helpful. A little bit playful.
+    </p>
+    <div class="hero-cta-row">
+      <a class="btn btn-primary" href="#signup">
+        Get on the list
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8m0 0L7 3m4 4L7 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </a>
+      <a class="btn btn-ghost" href="#today">See what he's up to</a>
+    </div>
+    <div class="hero-meta">
+      <span><strong>1</strong> friendly otter</span>
+      <span><strong>24/7</strong> on duty</span>
+      <span><strong>0</strong> coffee breaks needed</span>
+    </div>
+  </div>
+
+  <div class="hero-figure">
+    <div class="otter-wrap" id="otterWrap">
+      <video id="authurVideo" autoplay="" muted="" playsinline="" poster="assets/99fed9c0-3e10-478d-ba6d-8822d94be5c0.png">
+        <source src="assets/e397303f-81f6-4d0c-8ba0-0bc915308183.mp4" type="video/mp4">
+      </video>
+      <div class="video-caption-overlay" id="videoCaption" aria-live="polite"></div>
+    </div>
+    <div style="display:none;" aria-hidden="true">
+      <!-- ====== OTTER SVG (kept hidden as fallback) ====== -->
+      <svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" aria-label="Authur the Otter">
+        <defs>
+          <radialGradient id="furBody" cx="50%" cy="35%" r="70%">
+            <stop offset="0%" stop-color="#C97849"></stop>
+            <stop offset="55%" stop-color="#A6562F"></stop>
+            <stop offset="100%" stop-color="#7D3D1F"></stop>
+          </radialGradient>
+          <radialGradient id="furHead" cx="50%" cy="40%" r="65%">
+            <stop offset="0%" stop-color="#CF7F4F"></stop>
+            <stop offset="100%" stop-color="#8E4423"></stop>
+          </radialGradient>
+          <radialGradient id="belly" cx="50%" cy="40%" r="60%">
+            <stop offset="0%" stop-color="#F4E1C0"></stop>
+            <stop offset="100%" stop-color="#E0C089"></stop>
+          </radialGradient>
+          <radialGradient id="cheek" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#F4E1C0"></stop>
+            <stop offset="100%" stop-color="#F4E1C0" stop-opacity="0"></stop>
+          </radialGradient>
+          <radialGradient id="blush" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#E08866" stop-opacity="0.7"></stop>
+            <stop offset="100%" stop-color="#E08866" stop-opacity="0"></stop>
+          </radialGradient>
+        </defs>
+
+        <!-- soft ground shadow -->
+        <ellipse cx="240" cy="440" rx="160" ry="14" fill="#1B1814" opacity="0.1"></ellipse>
+
+        <!-- TAIL behind body -->
+        <path d="M 360 360 Q 430 320 420 250 Q 415 220 395 230 Q 400 270 370 310 Z" fill="url(#furBody)" stroke="#5C2C13" stroke-width="2"></path>
+        <!-- tail stripes -->
+        <path d="M 395 245 Q 408 260 402 280" stroke="#5C2C13" stroke-width="1.6" fill="none" opacity="0.5"></path>
+        <path d="M 380 270 Q 392 285 388 300" stroke="#5C2C13" stroke-width="1.6" fill="none" opacity="0.4"></path>
+
+        <!-- BODY -->
+        <ellipse cx="240" cy="330" rx="118" ry="98" fill="url(#furBody)" stroke="#5C2C13" stroke-width="2.2"></ellipse>
+
+        <!-- BELLY -->
+        <ellipse cx="240" cy="355" rx="78" ry="72" fill="url(#belly)"></ellipse>
+
+        <!-- FEET (back paws sticking out at bottom) -->
+        <ellipse cx="185" cy="418" rx="28" ry="14" fill="url(#furBody)" stroke="#5C2C13" stroke-width="2"></ellipse>
+        <ellipse cx="295" cy="418" rx="28" ry="14" fill="url(#furBody)" stroke="#5C2C13" stroke-width="2"></ellipse>
+        <!-- toe beans -->
+        <circle cx="175" cy="420" r="3" fill="#5C2C13"></circle>
+        <circle cx="185" cy="423" r="3" fill="#5C2C13"></circle>
+        <circle cx="195" cy="420" r="3" fill="#5C2C13"></circle>
+        <circle cx="285" cy="420" r="3" fill="#5C2C13"></circle>
+        <circle cx="295" cy="423" r="3" fill="#5C2C13"></circle>
+        <circle cx="305" cy="420" r="3" fill="#5C2C13"></circle>
+
+        <!-- ARMS -->
+        <!-- left arm holding clipboard -->
+        <path d="M 158 320 Q 130 320 120 360 Q 118 380 138 388 L 175 380 Q 180 350 175 330 Z" fill="url(#furBody)" stroke="#5C2C13" stroke-width="2"></path>
+        <!-- right arm waving -->
+        <g id="wavingArm" style="transform-origin: 322px 305px; animation: wave 3.2s ease-in-out infinite;">
+          <path d="M 322 305 Q 360 260 370 200 Q 372 178 358 175 Q 340 175 332 200 Q 322 250 305 290 Z" fill="url(#furBody)" stroke="#5C2C13" stroke-width="2"></path>
+          <!-- paw -->
+          <ellipse cx="362" cy="180" rx="18" ry="20" fill="url(#furHead)" stroke="#5C2C13" stroke-width="2"></ellipse>
+          <!-- paw fingers -->
+          <path d="M 350 168 Q 348 160 352 158" stroke="#5C2C13" stroke-width="1.6" fill="none"></path>
+          <path d="M 362 164 Q 362 156 366 156" stroke="#5C2C13" stroke-width="1.6" fill="none"></path>
+          <path d="M 374 168 Q 376 160 372 158" stroke="#5C2C13" stroke-width="1.6" fill="none"></path>
+        </g>
+
+        <!-- clipboard in left paw -->
+        <g>
+          <rect x="118" y="350" width="68" height="56" rx="4" fill="#FAF5E4" stroke="#5C2C13" stroke-width="2"></rect>
+          <rect x="138" y="345" width="28" height="8" rx="2" fill="#5C2C13"></rect>
+          <line x1="128" y1="365" x2="176" y2="365" stroke="#A6562F" stroke-width="1.4"></line>
+          <line x1="128" y1="375" x2="170" y2="375" stroke="#A6562F" stroke-width="1.4"></line>
+          <line x1="128" y1="385" x2="172" y2="385" stroke="#A6562F" stroke-width="1.4"></line>
+          <line x1="128" y1="395" x2="166" y2="395" stroke="#A6562F" stroke-width="1.4"></line>
+          <!-- check marks -->
+          <path d="M 122 364 l 3 3 5 -5" stroke="#6E8E7F" stroke-width="2" fill="none" stroke-linecap="round"></path>
+          <path d="M 122 374 l 3 3 5 -5" stroke="#6E8E7F" stroke-width="2" fill="none" stroke-linecap="round"></path>
+        </g>
+
+        <!-- HEAD -->
+        <ellipse cx="240" cy="180" rx="115" ry="105" fill="url(#furHead)" stroke="#5C2C13" stroke-width="2.4"></ellipse>
+
+        <!-- EARS -->
+        <ellipse cx="155" cy="115" rx="22" ry="18" fill="url(#furHead)" stroke="#5C2C13" stroke-width="2" transform="rotate(-25 155 115)"></ellipse>
+        <ellipse cx="325" cy="115" rx="22" ry="18" fill="url(#furHead)" stroke="#5C2C13" stroke-width="2" transform="rotate(25 325 115)"></ellipse>
+        <ellipse cx="158" cy="118" rx="11" ry="9" fill="#E08866" transform="rotate(-25 158 118)"></ellipse>
+        <ellipse cx="322" cy="118" rx="11" ry="9" fill="#E08866" transform="rotate(25 322 118)"></ellipse>
+
+        <!-- CHEEKS / FACE LIGHTER AREA -->
+        <ellipse cx="240" cy="210" rx="85" ry="70" fill="url(#belly)"></ellipse>
+
+        <!-- BLUSH -->
+        <ellipse cx="170" cy="220" rx="22" ry="14" fill="url(#blush)"></ellipse>
+        <ellipse cx="310" cy="220" rx="22" ry="14" fill="url(#blush)"></ellipse>
+
+        <!-- EYE WHITES -->
+        <ellipse cx="200" cy="180" rx="20" ry="22" fill="#FBF7EB" stroke="#5C2C13" stroke-width="2"></ellipse>
+        <ellipse cx="280" cy="180" rx="20" ry="22" fill="#FBF7EB" stroke="#5C2C13" stroke-width="2"></ellipse>
+
+        <!-- PUPILS (will follow cursor) -->
+        <g id="pupilL">
+          <circle cx="200" cy="184" r="11" fill="#1B1814"></circle>
+          <circle cx="204" cy="178" r="3.4" fill="#FBF7EB"></circle>
+        </g>
+        <g id="pupilR">
+          <circle cx="280" cy="184" r="11" fill="#1B1814"></circle>
+          <circle cx="284" cy="178" r="3.4" fill="#FBF7EB"></circle>
+        </g>
+
+        <!-- NOSE -->
+        <ellipse cx="240" cy="218" rx="11" ry="8" fill="#1B1814"></ellipse>
+        <!-- nose highlight -->
+        <ellipse cx="237" cy="215" rx="3" ry="2" fill="#FBF7EB" opacity="0.6"></ellipse>
+
+        <!-- MOUTH (smile) -->
+        <path d="M 240 226 L 240 240" stroke="#1B1814" stroke-width="2" stroke-linecap="round" fill="none"></path>
+        <path d="M 240 240 Q 224 256 212 246" stroke="#1B1814" stroke-width="2.4" stroke-linecap="round" fill="none"></path>
+        <path d="M 240 240 Q 256 256 268 246" stroke="#1B1814" stroke-width="2.4" stroke-linecap="round" fill="none"></path>
+        <!-- tongue -->
+        <path d="M 234 247 Q 240 254 246 247 Q 244 251 240 251 Q 236 251 234 247 Z" fill="#E08866"></path>
+
+        <!-- WHISKERS -->
+        <g stroke="#5C2C13" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.7">
+          <path d="M 215 230 Q 195 232 175 228"></path>
+          <path d="M 215 235 Q 195 240 175 240"></path>
+          <path d="M 265 230 Q 285 232 305 228"></path>
+          <path d="M 265 235 Q 285 240 305 240"></path>
+        </g>
+
+        <!-- little hair tuft -->
+        <path d="M 240 80 Q 235 65 245 70 Q 248 60 250 72 Q 258 65 256 80" fill="url(#furHead)" stroke="#5C2C13" stroke-width="1.8"></path>
+
+        <!-- bowtie -->
+        <g>
+          <path d="M 215 286 L 200 274 L 200 298 Z" fill="#0F3640" stroke="#0a242c" stroke-width="1"></path>
+          <path d="M 265 286 L 280 274 L 280 298 Z" fill="#0F3640" stroke="#0a242c" stroke-width="1"></path>
+          <rect x="232" y="278" width="16" height="16" rx="3" fill="#0F3640" stroke="#0a242c" stroke-width="1"></rect>
+          <circle cx="240" cy="286" r="2" fill="#E8B569"></circle>
+        </g>
+      </svg>
+    </div>
+
+    <div class="otter-chat">Hi! I'm Authur. Want help with that to-do list?</div>
+    <div class="otter-tag">★ Authur the Otter</div>
+  </div>
+</section>
+
+<!-- ============ NAME ETYMOLOGY ============ -->
+<section class="name-strip" data-screen-label="02 The Name" id="meet">
+  <div class="name-strip-inner">
+    <h2>The name <em>Authur</em><br>is a small confession.</h2>
+    <div class="roots">
+      <div class="root">
+        <div class="root-word"><span class="stress">Auth</span>entication</div>
+        <p>He proves who he is — and asks before doing things on your behalf.</p>
+      </div>
+      <div class="root">
+        <div class="root-word"><span class="stress">Auth</span>or</div>
+        <p>He drafts, writes, and shapes ideas with you. The pen is always yours.</p>
+      </div>
+      <div class="root">
+        <div class="root-word">Ar<span class="stress">thur</span></div>
+        <p>A loyal name. Round-table values: service, courage, doing right by you.</p>
+      </div>
+      <div class="root">
+        <div class="root-word"><span class="stress">Auth</span>enticity</div>
+        <p>He won't make things up. If he doesn't know, he says so. Out loud.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAPABILITIES ============ -->
+<section id="what" data-screen-label="03 Capabilities">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">What he does</div>
+        <h2 class="section-title">Small things, done <em>right</em>, every day.</h2>
+      </div>
+      <p class="section-intro">
+        Authur isn't trying to be everything. He's trying to be the one buddy who keeps your week from quietly falling apart — by handling the dozen small chores that pile up while you're focused on real work.
+      </p>
+    </div>
+
+    <div class="caps-grid">
+      <div class="cap">
+        <span class="cap-num">i.</span>
+        <div class="cap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"></rect><path d="M3 7l9 7 9-7" stroke="currentColor" stroke-width="1.6"></path></svg>
+        </div>
+        <h3>Reads your inbox</h3>
+        <p>Triages email, surfaces what actually needs you, drafts replies in your voice, and quietly archives the rest.</p>
+        <div class="cap-eg">"4 things need your eyes today. The other 23 can wait."</div>
+      </div>
+
+      <div class="cap">
+        <span class="cap-num">ii.</span>
+        <div class="cap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3 8-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
+        </div>
+        <h3>Keeps the to-do list</h3>
+        <p>Captures every "I should remember to…", sorts by what's urgent vs. important, and nudges only when nudging helps.</p>
+        <div class="cap-eg">"Three carry-overs from yesterday. Want me to bump one?"</div>
+      </div>
+
+      <div class="cap featured">
+        <span class="cap-num">iii.</span>
+        <div class="cap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"></circle><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
+        </div>
+        <h3>Watches the clock</h3>
+        <p>Holds your calendar, remembers the meeting before the meeting, and gives you a real heads-up — not a panic ping.</p>
+        <div class="cap-eg">"Coffee with Sam in 25 — your notes from last time are open."</div>
+      </div>
+
+      <div class="cap">
+        <span class="cap-num">iv.</span>
+        <div class="cap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"></circle><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
+        </div>
+        <h3>Answers the small Qs</h3>
+        <p>"What was that restaurant we liked?" "When's mom's birthday?" "Is that flight delayed?" — fast, honest, and sourced.</p>
+        <div class="cap-eg">"Pasta place near the park — Mona. Open till 10."</div>
+      </div>
+
+      <div class="cap">
+        <span class="cap-num">v.</span>
+        <div class="cap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 19V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14l-8-4-8 4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path></svg>
+        </div>
+        <h3>Remembers, gently</h3>
+        <p>Names of your friends' kids. Your sister's coffee order. The thing you said last Tuesday you'd circle back on. The little stuff.</p>
+        <div class="cap-eg">"Lila turns 7 next Friday — last year you sent the dino book."</div>
+      </div>
+
+      <div class="cap">
+        <span class="cap-num">vi.</span>
+        <div class="cap-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v4H4zM4 12h10v4H4zM4 20h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
+        </div>
+        <h3>Drafts the boring stuff</h3>
+        <p>The reschedule email. The dentist confirmation. The "circling back" follow-up. Written like you'd write it — only faster.</p>
+        <div class="cap-eg">"Draft ready. Tone: warm but firm. Hit send?"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW HE WORKS (HERMES) ============ -->
+<section id="how" class="openclaw" data-screen-label="04 Hermes">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">How he works</div>
+        <h2 class="section-title">Authur is a <em>HERMES</em> agent.</h2>
+      </div>
+      <p class="section-intro">
+        Hermes Agent, by Nous Research, is the open framework Authur runs on. It's a simple idea: an AI that can <em>actually do things</em> — read your email, edit a doc, set a reminder — instead of just talking about doing them. Hermes is what reaches out and gets the job done.
+      </p>
+    </div>
+
+    <div class="claw-grid">
+      <div class="claw-illo">
+        <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="pawFur" cx="50%" cy="40%" r="70%">
+              <stop offset="0%" stop-color="#A6562F"></stop>
+              <stop offset="100%" stop-color="#5C2C13"></stop>
+            </radialGradient>
+            <radialGradient id="pawPad" cx="50%" cy="45%" r="60%">
+              <stop offset="0%" stop-color="#E08866"></stop>
+              <stop offset="100%" stop-color="#B8553D"></stop>
+            </radialGradient>
+          </defs>
+
+          <!-- 4 connector lines reaching out from each finger to a tool -->
+          <g stroke="#134454" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="3 5" opacity="0.85">
+            <path d="M 122 138 Q 95 100 78 70"></path>
+            <path d="M 168 110 Q 175 70 175 40"></path>
+            <path d="M 218 122 Q 250 85 280 65"></path>
+            <path d="M 244 175 Q 290 195 305 230"></path>
+          </g>
+
+          <!-- Authur's open paw (waving hello) -->
+          <g transform="translate(180 220)">
+            <!-- wrist -->
+            <path d="M -30 70 Q -38 50 -28 30 L 32 30 Q 40 50 32 70 Z" fill="url(#pawFur)" stroke="#3a1b0a" stroke-width="2"></path>
+
+            <!-- palm -->
+            <path d="M -42 30 Q -50 0 -38 -30 Q -20 -50 0 -52 Q 22 -50 38 -30 Q 50 0 42 30 Q 30 50 0 52 Q -28 50 -42 30 Z" fill="url(#pawFur)" stroke="#3a1b0a" stroke-width="2"></path>
+
+            <!-- palm pad (lighter inner) -->
+            <path d="M -22 18 Q -28 -8 -18 -22 Q 0 -28 18 -22 Q 28 -8 22 18 Q 12 28 0 28 Q -12 28 -22 18 Z" fill="url(#pawPad)" opacity="0.55"></path>
+
+            <!-- thumb -->
+            <ellipse cx="-44" cy="-8" rx="14" ry="18" fill="url(#pawFur)" stroke="#3a1b0a" stroke-width="2" transform="rotate(-25 -44 -8)"></ellipse>
+
+            <!-- 4 fingers extending up (open hand) -->
+            <ellipse cx="-26" cy="-46" rx="12" ry="22" fill="url(#pawFur)" stroke="#3a1b0a" stroke-width="2" transform="rotate(-10 -26 -46)"></ellipse>
+            <ellipse cx="-4" cy="-56" rx="12" ry="26" fill="url(#pawFur)" stroke="#3a1b0a" stroke-width="2"></ellipse>
+            <ellipse cx="18" cy="-52" rx="12" ry="24" fill="url(#pawFur)" stroke="#3a1b0a" stroke-width="2" transform="rotate(8 18 -52)"></ellipse>
+            <ellipse cx="36" cy="-40" rx="11" ry="20" fill="url(#pawFur)" stroke="#3a1b0a" stroke-width="2" transform="rotate(20 36 -40)"></ellipse>
+
+            <!-- finger pads (small ovals at tips, lighter) -->
+            <ellipse cx="-28" cy="-62" rx="6" ry="8" fill="#E08866" opacity="0.7" transform="rotate(-10 -28 -62)"></ellipse>
+            <ellipse cx="-4" cy="-76" rx="6" ry="9" fill="#E08866" opacity="0.7"></ellipse>
+            <ellipse cx="20" cy="-70" rx="6" ry="8" fill="#E08866" opacity="0.7" transform="rotate(8 20 -70)"></ellipse>
+            <ellipse cx="40" cy="-54" rx="5" ry="7" fill="#E08866" opacity="0.7" transform="rotate(20 40 -54)"></ellipse>
+
+            <!-- subtle fur texture lines -->
+            <g stroke="#3a1b0a" stroke-width="1" fill="none" opacity="0.4">
+              <path d="M -30 -20 Q -28 -10 -32 0"></path>
+              <path d="M 0 -30 Q 2 -18 -2 -6"></path>
+              <path d="M 28 -22 Q 28 -10 24 0"></path>
+            </g>
+          </g>
+
+          <!-- 4 tool icons at line endpoints -->
+          <!-- mail (top-left) -->
+          <g>
+            <circle cx="78" cy="70" r="22" fill="#FDF8E6" stroke="#134454" stroke-width="2"></circle>
+            <rect x="67" y="62" width="22" height="16" rx="2" fill="none" stroke="#134454" stroke-width="1.4"></rect>
+            <path d="M67 64l11 8 11-8" stroke="#134454" stroke-width="1.4" fill="none"></path>
+            <text x="78" y="108" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#3F4D49">inbox</text>
+          </g>
+          <!-- calendar (top) -->
+          <g>
+            <circle cx="175" cy="40" r="22" fill="#FDF8E6" stroke="#134454" stroke-width="2"></circle>
+            <rect x="164" y="31" width="22" height="18" rx="2" fill="none" stroke="#134454" stroke-width="1.4"></rect>
+            <line x1="164" y1="36" x2="186" y2="36" stroke="#134454" stroke-width="1.4"></line>
+            <line x1="171" y1="28" x2="171" y2="34" stroke="#134454" stroke-width="1.4"></line>
+            <line x1="179" y1="28" x2="179" y2="34" stroke="#134454" stroke-width="1.4"></line>
+            <text x="175" y="78" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#3F4D49">calendar</text>
+          </g>
+          <!-- notes (top-right) -->
+          <g>
+            <circle cx="280" cy="65" r="22" fill="#FDF8E6" stroke="#134454" stroke-width="2"></circle>
+            <path d="M272 57h16M272 63h16M272 69h10" stroke="#134454" stroke-width="1.4"></path>
+            <text x="280" y="103" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#3F4D49">notes</text>
+          </g>
+          <!-- to-dos (right) -->
+          <g>
+            <circle cx="305" cy="230" r="22" fill="#FDF8E6" stroke="#134454" stroke-width="2"></circle>
+            <path d="M293 226l4 4 8-8" stroke="#7A9986" stroke-width="2" fill="none" stroke-linecap="round"></path>
+            <line x1="293" y1="236" x2="317" y2="236" stroke="#134454" stroke-width="1.4"></line>
+            <text x="305" y="268" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#3F4D49">to-dos</text>
+          </g>
+
+          <!-- caption -->
+          <text x="180" y="340" text-anchor="middle" font-family="Caveat, cursive" font-size="20" fill="#5B7461">one open paw, four small jobs</text>
+        </svg>
+      </div>
+
+      <div>
+        <p style="font-size:17px;color:var(--ink-2);line-height:1.6;margin:0 0 6px;">
+          Most AI you've met can <em>chat</em>. Authur can <em>act</em>. Hermes gives him a small set of trustworthy hands — one for your inbox, one for your calendar, one for your notes — and a clear rulebook for using them.
+        </p>
+
+        <div class="claw-letters">
+          <div class="claw-letter">
+            <div class="big">C</div>
+            <div>
+              <h4>Connected</h4>
+              <p>He plugs into the tools you already use — your email, your calendar, your notes app. No new dashboard to learn.</p>
+            </div>
+          </div>
+          <div class="claw-letter">
+            <div class="big">L</div>
+            <div>
+              <h4>Local-first</h4>
+              <p>Your data stays yours. Authur reads what he needs, when he needs it, and nothing more.</p>
+            </div>
+          </div>
+          <div class="claw-letter">
+            <div class="big">A</div>
+            <div>
+              <h4>Asks first</h4>
+              <p>Before he sends, deletes, or schedules anything that touches another person, he checks with you.</p>
+            </div>
+          </div>
+          <div class="claw-letter">
+            <div class="big">W</div>
+            <div>
+              <h4>Watchable</h4>
+              <p>Every action he takes shows up in his daily log (see below). Nothing happens in secret.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DAILY LOG ============ -->
+<section id="today" data-screen-label="05 Daily Log">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">Today with Authur</div>
+        <h2 class="section-title">A peek at his <em>desk</em> right now.</h2>
+      </div>
+      <p class="section-intro">
+        Authur keeps an open log of everything he's doing on your behalf — the drafts he's writing, the meetings he's prepping for, the questions he's holding for you. Refresh anytime. Nothing here is hidden.
+      </p>
+    </div>
+
+    <div class="log-shell">
+      <div class="log-head">
+        <div class="log-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" stroke-width="1.6"></rect><path d="M8 2v4M16 2v4M3 10h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
+          Authur's log — <span id="today-date">Sunday, May 10</span>
+        </div>
+        <span class="live"><span class="live-dot" id="liveDot"></span>Live<span id="lastChecked" style="margin-left:8px; font-weight:400; text-transform:none; letter-spacing:0; opacity:0.65;"></span></span>
+      </div>
+
+      <div class="log-stack">
+        <div class="log-entries">
+          <div class="log-entry">
+            <div class="time">09:12 AM</div>
+            <div class="marker done">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <div class="body">
+              Bootstrapped workspace environment, synced ADVYON Business Prompt v63 & household context.
+              <span class="meta">profile / memory · auto · 1 min</span>
+            </div>
+          </div>
+          <div class="log-entry">
+            <div class="time">10:15 AM</div>
+            <div class="marker done">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <div class="body">
+              Connected BlueBubbles iMessage gateway for Brian.
+              <span class="meta">gateway / bluebubbles · auto · 2 mins</span>
+            </div>
+          </div>
+          <div class="log-entry">
+            <div class="time">11:03 AM</div>
+            <div class="marker done">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <div class="body">
+              Paired a Telegram bot for direct Lowcountry-to-cloud mobile secure chat.
+              <span class="meta">mobile / telegram · approved · 2 mins</span>
+            </div>
+          </div>
+          <div class="log-entry">
+            <div class="time">01:20 PM</div>
+            <div class="marker done">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <div class="body">
+              Suppressed an SMS spam sender and issued a carrier stop rule.
+              <span class="meta">triage / imessage · auto · &lt; 1 min</span>
+            </div>
+          </div>
+          <div class="log-entry">
+            <div class="time">03:00 PM</div>
+            <div class="marker note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 19l7-7 3 3-7 7-3-3z M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path></svg>
+            </div>
+            <div class="body">
+              Reviewed a scam-domain report and drafted a takedown note.
+              <span class="meta">security / threat-intel · active · 4 mins</span>
+            </div>
+          </div>
+          <div class="log-entry">
+            <div class="time">04:47 PM</div>
+            <div class="marker task">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"></circle><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>
+            </div>
+            <div class="body">
+              Unpackaged standalone markup, structured static assets and brian.webp into the production package.
+              <span class="meta">devops / asset-bundler · active · &lt; 1 min</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEET BRIAN ============ -->
+<section id="about" class="about" data-screen-label="06 Who Authur Serves">
+  <div class="container">
+    <div class="about-grid">
+      <div class="brian-photo">
+        <img id="brian-photo" src="brian.webp" alt="Brian — the human Authur reports to" width="410" height="511">
+        <div class="brian-caption">Brian — the human Authur reports to.</div>
+      </div>
+      <div>
+        <div class="section-eyebrow">Who Authur serves</div>
+        <h2 class="about-quote">
+          Authur was built for <em>Brian</em>.
+        </h2>
+        <p style="font-size:17px;color:var(--ink-2);max-width:540px;margin:0 0 18px;line-height:1.65;">
+          Brian runs a busy life — clients, meetings, a household, a million small open loops. Authur is the buddy who quietly closes those loops in the background, so Brian can stay focused on the people and work that actually matter.
+        </p>
+        <p style="font-size:17px;color:var(--ink-2);max-width:540px;margin:0 0 24px;line-height:1.65;">
+          Every day, Authur reads Brian's inbox, herds his to-dos, watches his calendar, and answers the small questions that used to eat his afternoons. He never sends anything without checking. He never makes things up. And he leaves a clean, readable log of every move he makes.
+        </p>
+        <div class="about-card">
+          <h4>The brief</h4>
+          <div class="row"><span class="k">Reports to</span><span class="v">Brian</span></div>
+          <div class="row"><span class="k">Tone</span><span class="v">warm, dry, honest</span></div>
+          <div class="row"><span class="k">Working hours</span><span class="v">always-on, low-volume</span></div>
+          <div class="row"><span class="k">Won't ever</span><span class="v">make things up</span></div>
+          <div class="row"><span class="k">Will sometimes</span><span class="v">tell a small joke</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGN UP ============ -->
+<section style="padding:0;">
+  <div class="signup" id="signup" data-screen-label="07 Sign Up">
+    <div class="signup-grid">
+      <div>
+        <div class="section-eyebrow" style="color:rgba(250,245,228,0.6);">Get in touch</div>
+        <div class="section-eyebrow" style="color:rgba(250,245,228,0.6);">Get your own Authur</div>
+        <h2>Want a <em>HERMES agent</em><br>of your very own?</h2>
+        <p>Book a free 30-minute conversation and we'll walk you through what a personal AI buddy could do for you — your inbox, your calendar, your small daily chaos. No slides, no pressure. Just a real chat about what an Authur built for you might look like.</p>
+        <div style="margin-top:28px;display:flex;gap:22px;font-size:13px;color:rgba(250,245,228,0.65);flex-wrap:wrap;">
+          <span>★ 30 minutes</span>
+          <span>★ free · no commitment</span>
+          <span>★ video or phone</span>
+        </div>
+      </div>
+
+      <form class="signup-form" id="signupForm">
+        <input type="hidden" name="_to" value="banderson@advyon.com">
+        <input type="hidden" name="_subject" value="New Authur.ai Consultation Request!">
+        
+        <div class="field">
+          <label>Your name</label>
+          <input type="text" name="name" placeholder="e.g. Sam Rivera" required="">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="you@somewhere.com" required="">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Preferred date</label>
+            <input type="date" name="preferred_date" required="">
+          </div>
+          <div class="field">
+            <label>Time of day</label>
+            <select name="preferred_time">
+              <option value="Morning (9–noon)">Morning (9–noon)</option>
+              <option value="Afternoon (12–5)">Afternoon (12–5)</option>
+              <option value="Evening (5–7)">Evening (5–7)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>What you'd like Authur to help with</label>
+          <textarea name="message" placeholder="Inbox triage, calendar, to-dos, drafting, research…"></textarea>
+        </div>
+        <button class="signup-btn" type="submit">
+          Book my 30 minutes
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10m0 0L8 3m4 4L8 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </button>
+        <div class="signup-meta">
+          <span>Authur confirms within the hour</span>
+          <span>auth · ar · thur</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="lowcountry-strip">
+  Crafted in the <em>South Carolina Lowcountry</em> — between the marsh and the Ashley River.
+</div>
+
+<footer>
+  <div class="left">
+    <div class="brand-mark" style="width:28px;height:28px;font-size:18px;">A</div>
+    <div>
+      <div style="font-family:Instrument Serif,serif;font-size:18px;color:var(--ink);">authur.ai</div>
+      <div style="font-size:12px;">© 2026 · A HERMES personal agent · made with otterly good intentions</div>
+    </div>
+  </div>
+  <div class="links">
+    <a href="#what">What he does</a>
+    <a href="#how">How he works</a>
+    <a href="#today">Today</a>
+    <a href="#signup">Say hi</a>
+  </div>
+</footer>
+
+<script>
+  // ===== Authur video: play once, then return to first frame =====
+  (function() {
+    const v = document.getElementById('authurVideo');
+    const cap = document.getElementById('videoCaption');
+    if (!v) return;
+    v.addEventListener('ended', () => {
+      v.pause();
+      v.currentTime = 0;
+      if (cap) cap.classList.remove('show');
+    });
+
+    if (cap) {
+      // Cue timings from word-level Whisper transcription of the actual audio.
+      const cues = [
+        { start: 0.00, end: 1.95, text: "Hello everyone!" },
+        { start: 1.95, end: 3.75, text: "I'm Authur the Otter," },
+        { start: 3.75, end: 6.80, text: "and I'm thrilled to be your new AI programmer!" }
+      ];
+      let current = null;
+      function renderCaption() {
+        const t = v.currentTime;
+        const cue = (!v.paused && !v.ended)
+          ? cues.find(c => t >= c.start && t < c.end)
+          : null;
+        if (cue !== current) {
+          current = cue;
+          if (cue) {
+            cap.textContent = cue.text;
+            cap.classList.add('show');
+          } else {
+            cap.classList.remove('show');
+          }
+        }
+      }
+      // timeupdate fires only ~4x/sec; use rAF while playing for tight sync
+      let raf = null;
+      function loop() {
+        renderCaption();
+        raf = requestAnimationFrame(loop);
+      }
+      v.addEventListener('play', () => { if (!raf) loop(); });
+      v.addEventListener('pause', () => {
+        if (raf) { cancelAnimationFrame(raf); raf = null; }
+        current = null;
+        cap.classList.remove('show');
+      });
+      if (!v.paused) loop();
+    }
+  })();
+
+  // ===== Cursor-following pupils =====
+  (function() {
+    const wrap = document.getElementById('otterWrap');
+    if (!wrap) return;
+    const pupilL = document.getElementById('pupilL');
+    const pupilR = document.getElementById('pupilR');
+    // SVG coords: pupilL center ~ (200, 184), pupilR center ~ (280, 184)
+    // We'll translate up to ~5px in svg units
+    const lOrigin = { x: 200, y: 184 };
+    const rOrigin = { x: 280, y: 184 };
+    const maxOffset = 5;
+
+    window.addEventListener('mousemove', (e) => {
+      const rect = wrap.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height * 0.4; // face is upper-middle
+      const dx = e.clientX - cx;
+      const dy = e.clientY - cy;
+      const dist = Math.hypot(dx, dy);
+      const norm = Math.min(1, dist / 400);
+      const ox = (dx / (dist || 1)) * maxOffset * norm;
+      const oy = (dy / (dist || 1)) * maxOffset * norm;
+      pupilL.setAttribute('transform', `translate(${ox}, ${oy})`);
+      pupilR.setAttribute('transform', `translate(${ox}, ${oy})`);
+    });
+
+    // occasional blink
+    function blink() {
+      const eyes = document.querySelectorAll('#pupilL, #pupilR');
+      eyes.forEach(el => el.style.transition = 'transform 0.15s, opacity 0.08s');
+      eyes.forEach(el => el.style.opacity = '0');
+      setTimeout(() => eyes.forEach(el => el.style.opacity = '1'), 120);
+      setTimeout(blink, 3500 + Math.random() * 3500);
+    }
+    setTimeout(blink, 2500);
+  })();
+
+  // ===== Wave animation keyframe injection =====
+  const styleSheet = document.createElement('style');
+  styleSheet.textContent = `
+    @keyframes wave {
+      0%, 60%, 100% { transform: rotate(0deg); }
+      10%, 30% { transform: rotate(-12deg); }
+      20%, 40% { transform: rotate(6deg); }
+    }
+  `;
+  document.head.appendChild(styleSheet);
+
+  // ===== Live log: occasionally tick the "now" marker =====
+  (function() {
+    const nowRow = document.querySelector('.log-entry.now .body');
+    if (!nowRow) return;
+    const phrases = [
+      'Pulling notes from last call with Sam — coffee in 25 min.',
+      'Cross-referencing your prep doc with Sam\'s recent emails.',
+      'Found the bit about the Q3 timeline — putting it on top.',
+      'Drafting a 2-line opener you can use if it stalls.',
+    ];
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % phrases.length;
+      nowRow.firstChild.textContent = phrases[i] + ' ';
+    }, 4200);
+  })();
+
+    // ===== Live Dynamic Activity Logs (with Webhook API & Local JSON fallback) =====
+  // Mask contact details in log bodies before they are drawn. The same rules run in
+  // api/authur-log.php so a direct fetch of the endpoint is masked too.
+  function redactLogText(text) {
+    let s = String(text || '');
+    s = s.replace(/[A-Z0-9._%+\-]+@[A-Z0-9.\-]+\.[A-Z]{2,}/gi, '[redacted-email]');
+    s = s.replace(/(^|[^\d])((?:\+?1[\s.\-]?)?(?:\(\d{3}\)|\d{3})[\s.\-]\d{3}[\s.\-]\d{4})(?!\d)/g, '$1[redacted-phone]');
+    s = s.replace(/\b(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+(?:com|net|org|io|ai|co|us|info|biz|cc|me|app|dev|xyz|online|site|shop|cloud|email|tech|pro|tv|uk|ca|de|nl|eu|gov|edu)\b/gi, (domain) => {
+      const d = domain.toLowerCase();
+      if (d === 'authur.ai' || d === 'www.authur.ai' || d === 'advyon.com' || d === 'www.advyon.com') return domain;
+      return '[redacted-domain]';
+    });
+    s = s.replace(/(^|[^A-Za-z0-9._%+\-])@([A-Za-z][A-Za-z0-9_]{2,})/g, '$1@[redacted]');
+    return s;
+  }
+
+  function redactEmbeddedLog() {
+    document.querySelectorAll('.log-entry .body').forEach((body) => {
+      body.childNodes.forEach((node) => {
+        if (node.nodeType === Node.TEXT_NODE) node.textContent = redactLogText(node.textContent);
+      });
+      const meta = body.querySelector('.meta');
+      if (meta) meta.textContent = redactLogText(meta.textContent);
+    });
+  }
+
+  let lastLogSignature = null;
+  async function loadLiveLogs(isPoll) {
+    try {
+      // Try the dynamic API route first; fall back to the static JSON on ANY failure —
+      // including HTTP error statuses like 404, which fetch() does NOT reject on.
+      let response;
+      try {
+        response = await fetch('/api/authur-log');
+        if (!response.ok) throw new Error('api route not available: ' + response.status);
+      } catch (apiErr) {
+        response = await fetch('live_log.json?ts=' + Date.now(), { cache: 'no-store' });
+      }
+      if (!response.ok) return;
+      const data = await response.json();
+      if (!Array.isArray(data) || data.length === 0) return;
+
+      const signature = JSON.stringify(data.map(d => d.time + '|' + d.body));
+      const changed = lastLogSignature !== null && signature !== lastLogSignature;
+      const isFirstLoad = lastLogSignature === null;
+      lastLogSignature = signature;
+
+      const entriesContainer = document.querySelector('.log-entries');
+      if (!entriesContainer) return;
+
+      const svgs = {
+        done: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>`,
+        note: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 19l7-7 3 3-7 7-3-3z M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path></svg>`,
+        task: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"></circle><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>`
+      };
+
+      entriesContainer.innerHTML = '';
+
+      // Render newest-first: the feed's source-of-truth JSON is chronological (oldest → newest),
+      // so reverse a copy for display without touching the signature/diff logic above.
+      // Cap to the 8 most recent entries so the feed doesn't grow unbounded on the page.
+      const displayData = data.slice().reverse().slice(0, 8);
+
+      displayData.forEach((item, idx) => {
+        // Entry item — time, marker, and body all live inside ONE row now, so nothing can
+        // drift out of sync when body text wraps to multiple lines (the old fixed-height
+        // two-column layout let long entries overflow into the next row on mobile).
+        const entryDiv = document.createElement('div');
+        entryDiv.className = 'log-entry';
+        // Flash the newest entry green if this poll actually changed the data (not the first load).
+        // Newest is now idx 0 since the feed displays newest-first.
+        if (changed && idx === 0) {
+          entryDiv.classList.add('new-entry');
+        }
+
+        const timeDiv = document.createElement('div');
+        timeDiv.className = 'time';
+        timeDiv.textContent = item.time || '';
+
+        const markerDiv = document.createElement('div');
+        markerDiv.className = `marker ${item.type || 'done'}`;
+        markerDiv.innerHTML = svgs[item.type] || svgs.done;
+
+        const bodyDiv = document.createElement('div');
+        bodyDiv.className = 'body';
+        bodyDiv.textContent = redactLogText(item.body) + ' ';
+
+        const metaSpan = document.createElement('span');
+        metaSpan.className = 'meta';
+        metaSpan.textContent = redactLogText(item.meta || '');
+
+        bodyDiv.appendChild(metaSpan);
+        entryDiv.appendChild(timeDiv);
+        entryDiv.appendChild(markerDiv);
+        entryDiv.appendChild(bodyDiv);
+
+        entriesContainer.appendChild(entryDiv);
+      });
+
+      // Flash the LIVE dot on first load (proof of life) and on every poll that pulls fresh data.
+      if (isFirstLoad || isPoll || changed) {
+        const dot = document.getElementById('liveDot');
+        if (dot) {
+          dot.classList.remove('flash');
+          void dot.offsetWidth; // restart animation
+          dot.classList.add('flash');
+        }
+      }
+      lastCheckedAt = Date.now();
+    } catch (err) {
+      console.warn('Live log feed fetch failed (falling back to embedded static values):', err);
+    }
+  }
+
+  // "Last checked" ticker — proves the poll loop is actually running, not just claimed.
+  let lastCheckedAt = null;
+  function tickLastChecked() {
+    const el = document.getElementById('lastChecked');
+    if (!el || !lastCheckedAt) return;
+    const secs = Math.round((Date.now() - lastCheckedAt) / 1000);
+    el.textContent = secs < 5 ? '· checked just now' : `· checked ${secs}s ago`;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    redactEmbeddedLog();
+    loadLiveLogs(false);
+    // Real polling: re-fetches live_log.json every 30s. Each poll flashes the dot and
+    // updates "checked Ns ago" below, so the LIVE label is provable, not decorative.
+    setInterval(() => loadLiveLogs(true), 30000);
+    setInterval(tickLastChecked, 1000);
+  });
+
+  // ===== Mobile hamburger menu toggle =====
+  (function() {
+    const btn = document.getElementById('hamburgerBtn');
+    const menu = document.getElementById('mobileNav');
+    if (!btn || !menu) return;
+    function closeMenu() {
+      btn.classList.remove('open');
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    btn.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target) && !btn.contains(e.target)) closeMenu();
+    });
+  })();
+
+    // ===== Form Submission — real email send via api/signup.php =====
+  (function() {
+    const form = document.getElementById('signupForm');
+    if (!form) return;
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      const btn = form.querySelector('.signup-btn');
+      const originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.textContent = 'Scheduling...';
+
+      let success = false;
+      let errorMsg = '';
+      try {
+        const response = await fetch('/api/signup.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const result = await response.json().catch(() => ({}));
+        if (response.ok && result.ok) {
+          success = true;
+        } else {
+          errorMsg = result.error || ('status ' + response.status);
+        }
+      } catch (err) {
+        console.warn('Booking email send failed:', err);
+        errorMsg = err.message || 'network error';
+      }
+
+      if (success) {
+        // Transition to our beautiful success visual layout
+        const successDiv = document.createElement('div');
+        successDiv.style.textAlign = 'center';
+        successDiv.style.padding = '40px 20px';
+        successDiv.style.fontFamily = 'Instrument Serif, serif';
+        successDiv.style.fontSize = '26px';
+        successDiv.style.color = '#E8B569';
+        successDiv.innerHTML = `
+          ✦<br>
+          <span style="font-size:22px;color:#FAF5E4;display:block;margin-top:10px;">Got it — Authur just let Brian know.</span>
+          <span style="font-family:Caveat,cursive;font-size:18px;color:rgba(250,245,228,0.75);display:block;margin-top:8px;">He'll give you a call to lock in a time.</span>
+        `;
+        form.replaceWith(successDiv);
+      } else {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        alert('There was a slight hiccup booking (' + errorMsg + '). Please email banderson@advyon.com directly!');
+      }
+    });
+  })();
+
+  // ===== Date =====
+
+
+  (function() {
+    const el = document.getElementById('today-date');
+    if (!el) return;
+    const d = new Date();
+    const day = d.toLocaleDateString('en-US', { weekday: 'long' });
+    const md = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+    el.textContent = `${day}, ${md}`;
+  })();
+</script>
+
+
+
+</body></html>
